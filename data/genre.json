@@ -1,6 +1,13 @@
 [
     {
-        "id": "example",
-        "label": "example"
+        "label": "High fantasy"
+    },
+
+    {
+        "label": "Fantasy"
+    },
+
+    {
+        "label": "Superhero"
     }
 ]

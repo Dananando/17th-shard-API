@@ -1,6 +1,41 @@
 [
     {
-        "id": "example",
-        "label": "example"
+        "label": "THE MISTBORN SAGA - THE ORIGINAL TRILOGY"
+    },
+
+    {
+        "label": "THE STORMLIGHT ARCHIVE"
+    },
+
+    {
+        "label": "THE MISTBORN® SAGA - THE WAX & WAYNE SERIES"
+    },
+
+    {
+        "label": "WHITE SAND"
+    },
+
+    {
+        "label": "SKYWARD"
+    },
+
+    {
+        "label": "THE RECKONERS"
+    },
+
+    {
+        "label": "ALCATRAZ VS THE EVIL LIBRARIANS"
+    },
+
+    {
+        "label": "THE WHEEL OF TIME"
+    },
+
+    {
+        "label": "INFINITY BLADE"
+    },
+
+    {
+        "label": "LEGION"
     }
 ]

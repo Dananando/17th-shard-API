@@ -1,9 +1,15 @@
 [
     {
-        "id": "example",
-        "first_name": "example",
-        "last_name": "example",
-        "birth_date": "example",
-        "birth_place": "example"
+        "first_name": "Brandon",
+        "last_name": "Sanderson",
+        "birth_date": "1975-12-19",
+        "birth_place": "Lincoln (USA)"
+    },
+
+    {
+        "first_name": "Robert",
+        "last_name": "Jordan",
+        "birth_date": "1948-10-17",
+        "birth_place": "Charleston (USA)"
     }
 ]
