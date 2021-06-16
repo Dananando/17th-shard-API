@@ -16,8 +16,7 @@ Si les deux cardinalités max. sont n, donc une relation « plusieurs à plusieu
 
 ```sql
 serie(id, label)
-book(id, title, serie_id(FK))
+book(id, title, serie_id(FK), summary)
 author(id, first_name, last_name, birth_date, birth_place)
-genre(id, label)
 
 ```

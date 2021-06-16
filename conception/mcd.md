@@ -8,8 +8,4 @@ SERIE: label
 BOOK: title
 WROTE, 1N BOOK, 1N AUTHOR
 AUTHOR: first_name, last_name
-
-CONTAINS, 1N GENRE, 1N BOOK
-GENRE: label
-:
 ```
