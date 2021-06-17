@@ -1,7 +1,9 @@
-const {Client} = require('pg');
+const {Pool} = require('pg');
 
-const client = new Client(process.env.PG_URL);
+const pool = new Pool({
+    connectionString: process.env.PG_URL
+});
 
-client.connect();
+// client.connect();
 
-module.exports = client;
+module.exports = pool;

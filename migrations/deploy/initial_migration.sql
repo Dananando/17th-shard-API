@@ -12,7 +12,7 @@ CREATE TABLE "book" (
     "title" TEXT NOT NULL UNIQUE,
     "summary" TEXT NOT NULL UNIQUE,
     "content" TEXT NOT NULL UNIQUE,
-    "serie_id" int NOT NULL REFERENCES serie(id)
+    "serie_id" int REFERENCES serie(id)
 );
 
 CREATE TABLE "author" (
