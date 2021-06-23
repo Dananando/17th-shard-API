@@ -1,5 +1,4 @@
 %syntax-version=1.0.0
 %project=brandon-api
 
-initial_migration 2021-06-16T22:28:08Z steph <dan.andriamihaja@gmail.com> # Première migration
-import_data 2021-06-18T16:09:04Z steph <dan.andriamihaja@gmail.com> # Import de toutes les données
+initial_migration 2021-06-23T16:09:54Z steph <dan.andriamihaja@gmail.com> # Initial migration

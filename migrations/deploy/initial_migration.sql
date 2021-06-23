@@ -10,8 +10,8 @@ CREATE TABLE "serie" (
 CREATE TABLE "book" (
     "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "title" TEXT NOT NULL UNIQUE,
+    "cover_image" TEXT NOT NULL,
     "summary" TEXT NOT NULL UNIQUE,
-    "content" TEXT NOT NULL UNIQUE,
     "serie_id" int REFERENCES serie(id)
 );
 

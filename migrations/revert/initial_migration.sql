@@ -1,7 +1,9 @@
--- Deploy brandon-api:initial_migration to pg
+-- Revert brandon-api:initial_migration from pg
 
 BEGIN;
 
-DROP TABLE "serie", "book", "author";
+DROP TABLE "author";
+DROP TABLE "book";
+DROP TABLE "serie";
 
 COMMIT;

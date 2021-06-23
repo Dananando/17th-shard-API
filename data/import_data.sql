@@ -1,8 +1,6 @@
--- Deploy brandon-api:import_data to pg
-
 BEGIN;
 
-INSERT INTO author (first_name, last_name, birth_date, birth_place) VALUES
+INSERT INTO "author" (first_name, last_name, birth_date, birth_place) VALUES
 ('Brandon', 'Sanderson', '1975-12-19', 'Lincoln (USA)'),
 ('Robert', 'Jordan', '1948-10-17', 'Charleston (USA)');
 
@@ -10,7 +8,7 @@ INSERT INTO serie (label) VALUES
 ('THE MISTBORN SAGA - THE ORIGINAL TRILOGY'),
 ('THE STORMLIGHT ARCHIVE'),
 ('THE MISTBORN SAGA - THE WAX & WAYNE SERIES'),
-('WHITE SAND')
+('WHITE SAND'),
 ('SKYWARD'),
 ('THE RECKONERS'),
 ('ALCATRAZ VS THE EVIL LIBRARIANS'),

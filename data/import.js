@@ -1,3 +1,4 @@
+// unused
 require('dotenv').config();
 
 const database = require('../app/database');

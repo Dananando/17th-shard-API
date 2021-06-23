@@ -2,6 +2,8 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT * FROM "author" WHERE false;
+SELECT * FROM "serie" WHERE false;
+SELECT * FROM "book" WHERE false;
 
 ROLLBACK;
