@@ -6,6 +6,7 @@ This API shall follow the [REST architecture](https://practicalprogramming.fr/ap
 ## MCD/MLD
 
 The [MCD](./conception/mcd.md) and [MLD](./conception/mld.md) have been done thanks to [mocodo](http://mocodo.wingi.net/).
+![MCD_image](conception/Books.svg)
 
 ## Sources
 
