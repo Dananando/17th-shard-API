@@ -1,3 +1,6 @@
+> One API to rule them all, One API to find them; One API to bring them all and in the darkness bind them.
+> - Tom RIDDLE
+
 # API for Brandon SANDERSON's books
 
 Little project to gather info on all of Brandon SANDERSON'S books.
@@ -11,6 +14,10 @@ The [MCD](./conception/mcd.md) and [MLD](./conception/mld.md) have been done tha
 ## Sources
 
 Take as much info as possible on the books and author on [Brandon SANDERSON's wikipedia page](https://en.wikipedia.org/wiki/Brandon_Sanderson), his [website](https://www.brandonsanderson.com/) and this [wiki](https://coppermind.net/wiki/Coppermind:Welcome) made by fans.
+
+## API documentation
+
+Eventually we will need [express-swagger-generator](https://www.npmjs.com/package/express-swagger-generator) in order to document the API correctly.
 
 
 ## Stack used

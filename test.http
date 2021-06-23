@@ -1,0 +1,8 @@
+### Test page
+GET  http://localhost:3333/v1/
+
+### Get all authors
+GET  http://localhost:3333/v1/authors
+
+### Get one author
+GET  http://localhost:3333/v1/authors/2
