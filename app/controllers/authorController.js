@@ -26,6 +26,17 @@ const authorController = {
         } catch (error) {
             console.trace(error);
         }
+    },
+    
+    async saveOrUpdate(request, response, next) {
+        const author = request.body;
+        try {
+            const savedAuthor = await authorDatamapper.saveOrUpdate(author);
+            response.status(201).json(savedAuthor);   
+        } catch (error) {
+            console.trace(error);
+            response.status(500).json(error.message);
+        }
     }
 };
 

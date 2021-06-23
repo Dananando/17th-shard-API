@@ -1,4 +1,3 @@
-const { getAll, getOne } = require('../controllers/authorController');
 const database = require('../database');
 
 const authorDatamapper = {
@@ -28,6 +27,34 @@ const authorDatamapper = {
             return rows[0];
         } catch (error) {
             console.trace(error);
+            throw error;
+        }
+    },
+
+    async saveOrUpdate(author) {
+        if (author.id) {
+            const query = {
+                text: `UPDATE "author" SET first_name = $1, last_name = $2, birth_date = $3,birth_place = $4 WHERE id = $5;`,
+                values: [author.first_name, author.last_name, author.birth_date, author.birth_place, author.id]
+            };
+            try {
+                await database.query(query);
+            } catch (error) {
+                console.trace(error);
+                throw error;
+            }
+        } else {
+            const query = {
+                text: `INSERT INTO "author" (first_name, last_name, birth_date, birth_place) VALUES ($1, $2, $3, $4) RETURNING id;`,
+                values: [author.first_name, author.last_name, author.birth_date, author.birth_place]
+            };
+            try {
+                const { rows } = await database.query(query);
+                author.id = rows[0].id;
+            } catch (error) {
+                console.trace(error);
+                throw error;
+            }
         }
     }
 };

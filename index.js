@@ -13,6 +13,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 4444;
 
+// MW to read correctly request.body
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/v1', router);
 
 app.listen(PORT, () => {
