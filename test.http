@@ -1,8 +1,43 @@
 ### Test page
 GET  http://localhost:3333/v1/
 
+### Test 404
+GET  http://localhost:3333/v1/qldyur
+
 ### Get all authors
 GET  http://localhost:3333/v1/authors
 
 ### Get one author
-GET  http://localhost:3333/v1/authors/2
+GET http://localhost:3333/v1/authors/2
+
+### Add new author (json style)
+POST http://localhost:3333/v1/authors/save
+Content-Type: application/json
+{
+    "first_name": "Steph",
+    "last_name": "Andria",
+    "birth_date": "1991-08-12",
+    "birth_place": "Lille (FR)"
+}
+
+### Add new author (urlencoded style)
+POST http://localhost:3333/v1/authors/save
+Content-Type: application/x-www-form-urlencoded
+
+first_name=Lili
+&last_name=Pad
+&birth_date=1991-04-03
+&birth_place=Paris (FR)
+
+### Update an author
+PATCH http://localhost:3333/v1/authors/update
+Content-Type: application/x-www-form-urlencoded
+
+id=3
+&first_name=Phaphane
+&last_name=Andria
+&birth_date=1991-08-12
+&birth_place=Lille (FR)
+
+### Delete an author
+DELETE http://localhost:3333/v1/authors/2

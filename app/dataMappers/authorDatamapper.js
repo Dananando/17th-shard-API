@@ -38,7 +38,7 @@ const authorDatamapper = {
                 values: [author.first_name, author.last_name, author.birth_date, author.birth_place, author.id]
             };
             try {
-                await database.query(query);
+                const { rows } = await database.query(query);
             } catch (error) {
                 console.trace(error);
                 throw error;
@@ -55,6 +55,20 @@ const authorDatamapper = {
                 console.trace(error);
                 throw error;
             }
+        }
+    },
+
+    async delete(id) {
+        const query = {
+            text: `DELETE FROM author WHERE id = $1;`,
+            values: [id]
+        };
+
+        try {
+            await database.query(query);
+        } catch (error) {
+            console.trace(error);
+            throw error;
         }
     }
 };
