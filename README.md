@@ -32,7 +32,7 @@ The frameworks [__Node.js__](https://nodejs.org/en/download) (v12 or above) and 
 
 [__PG__](https://www.npmjs.com/package/pg) will be needed as well in order to help our application interact with PSQL (see section below).
 
-It is likely that authentification will be needed. Therefore [__express-session__](https://www.npmjs.com/package/express-session) and [__joi__](https://www.npmjs.com/package/joi) (to validate the updated or added data) might be installed in the future (*TBC*).
+Maybe authentification will be needed. Therefore [__express-session__](https://www.npmjs.com/package/express-session) and [__joi__](https://www.npmjs.com/package/joi) (to validate the updated or added data) might be installed in the future (*TBC*).
 
 #### PSQL & Data Mapper
 
