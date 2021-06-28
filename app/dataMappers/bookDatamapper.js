@@ -1,9 +1,9 @@
 const database = require('../database');
 
-const authorDatamapper = {
+const bookDatamapper = {
     async getAll() {
         const query = {
-            text: `SELECT * FROM "author";`
+            text: `SELECT * FROM "book";`
         };
 
         try {
@@ -17,7 +17,7 @@ const authorDatamapper = {
 
     async getOne(id) {
         const query = {
-            text: `SELECT * FROM "author" WHERE id = $1;`,
+            text: `SELECT * FROM "book" WHERE id = $1;`,
             values: [id]
         };
 
@@ -31,11 +31,11 @@ const authorDatamapper = {
         }
     },
 
-    async saveOrUpdate(author) {
-        if (author.id) {
+    async saveOrUpdate(book) {
+        if (book.id) {
             const query = {
-                text: `UPDATE "author" SET first_name = $1, last_name = $2, birth_date = $3,birth_place = $4 WHERE id = $5 RETURNING id;`,
-                values: [author.first_name, author.last_name, author.birth_date, author.birth_place, author.id]
+                text: `UPDATE "book" SET title = $1, serie_id = $2, cover_image = $3,summary = $4 WHERE id = $5 RETURNING id;`,
+                values: [book.first_name, book.last_name, book.birth_date, book.birth_place, book.id]
             };
             try {
                 const { rows } = await database.query(query);
@@ -46,12 +46,12 @@ const authorDatamapper = {
             }
         } else {
             const query = {
-                text: `INSERT INTO "author" (first_name, last_name, birth_date, birth_place) VALUES ($1, $2, $3, $4) RETURNING id;`,
-                values: [author.first_name, author.last_name, author.birth_date, author.birth_place]
+                text: `INSERT INTO "book" (title, serie_id, cover_image, summary) VALUES ($1, $2, $3, $4) RETURNING id;`,
+                values: [book.first_name, book.last_name, book.birth_date, book.birth_place]
             };
             try {
                 const { rows } = await database.query(query);
-                // author.id = rows[0].id;
+                // book.id = rows[0].id;
                 return rows[0];
             } catch (error) {
                 console.trace(error);
@@ -62,7 +62,7 @@ const authorDatamapper = {
 
     async delete(id) {
         const query = {
-            text: `DELETE FROM author WHERE id = $1;`,
+            text: `DELETE FROM book WHERE id = $1;`,
             values: [id]
         };
 
@@ -75,4 +75,4 @@ const authorDatamapper = {
     }
 };
 
-module.exports = authorDatamapper;
+module.exports = bookDatamapper;

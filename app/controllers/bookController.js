@@ -1,11 +1,11 @@
-const authorDatamapper = require('../dataMappers/authorDatamapper');
+const bookDatamapper = require('../dataMappers/bookDatamapper');
 
-const authorController = {
-    async getAll(request, response, next) {
+const bookController = {
+    async getAll(_, response, next) {
         try {
-            const authors = await authorDatamapper.getAll();
-            if (authors) {
-                response.status(200).json(authors);
+            const books = await bookDatamapper.getAll();
+            if (books) {
+                response.status(200).json(books);
             } else {
                 next();
             }
@@ -17,9 +17,9 @@ const authorController = {
     async getOne(request, response, next) {
         const id = Number(request.params.id);
         try {
-            const theAuthor = await authorDatamapper.getOne(id);
-            if (theAuthor) {
-                response.status(200).json(theAuthor);
+            const theBook = await bookDatamapper.getOne(id);
+            if (theBook) {
+                response.status(200).json(theBook);
             } else {
                 next();
             }
@@ -29,12 +29,12 @@ const authorController = {
     },
 
     async saveOrUpdate(request, response, next) {
-        const author = request.body;
+        const book = request.body;
         try {
-            const savedAuthor = await authorDatamapper.saveOrUpdate(author);
-            console.log('Saved author: ', savedAuthor);
-            if (savedAuthor) {
-                response.status(201).json(savedAuthor);
+            const savedBook = await bookDatamapper.saveOrUpdate(book);
+            console.log('Saved book: ', savedBook);
+            if (savedBook) {
+                response.status(201).json(savedBook);
             } else {
                 next();
             }
@@ -47,9 +47,9 @@ const authorController = {
     async delete(request, response, next) {
         const id = Number(request.params.id);
         try {
-            const deletedAuthor = await authorDatamapper.delete(id);
-            if (deletedAuthor) {
-                response.status(204).json(deletedAuthor);
+            const deletedBook = await bookDatamapper.delete(id);
+            if (deletedBook) {
+                response.status(204).json(deletedBook);
             } else {
                 next();
             }
@@ -60,4 +60,4 @@ const authorController = {
     }
 };
 
-module.exports = authorController;
+module.exports = bookController;
