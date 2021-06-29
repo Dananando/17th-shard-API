@@ -67,7 +67,8 @@ const authorDatamapper = {
         };
 
         try {
-            await database.query(query);
+            const { rows } = await database.query(query);
+            return rows[0];
         } catch (error) {
             console.trace(error);
             throw error;

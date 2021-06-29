@@ -4,6 +4,10 @@ GET  http://localhost:3333/v1/
 ### Test 404
 GET  http://localhost:3333/v1/qldyur
 
+
+### ----------
+### AUTHORS 
+### ------------
 ### Get all authors
 GET  http://localhost:3333/v1/books
 
@@ -42,3 +46,55 @@ id=10
 
 ### Delete an author
 DELETE http://localhost:3333/v1/authors/2
+
+
+### ------------
+### BOOKS 
+### ------------
+### Add new book (urlencoded style)
+POST http://localhost:3333/v1/books/save
+Content-Type: application/x-www-form-urlencoded
+
+title=booktitle
+&cover_image=test
+&summary=lots of text
+&serie_id=1
+
+### Update a book
+PATCH http://localhost:3333/v1/books/update
+Content-Type: application/x-www-form-urlencoded
+
+id=12
+&title=newTitle
+&cover_image=image
+&summary=theSummary
+&serie_id=2
+
+### Delete a book
+DELETE http://localhost:3333/v1/books/11
+
+
+### ----------
+### SERIES 
+### ------------
+### Get all series
+GET  http://localhost:3333/v1/series
+
+### Get one serie
+GET http://localhost:3333/v1/series/11
+
+### Add new serie (urlencoded style)
+POST http://localhost:3333/v1/series/save
+Content-Type: application/x-www-form-urlencoded
+
+label=New label
+
+### Update an serie
+PATCH http://localhost:3333/v1/series/update
+Content-Type: application/x-www-form-urlencoded
+
+id=11
+&label=ffff
+
+### Delete an serie
+DELETE http://localhost:3333/v1/series/13

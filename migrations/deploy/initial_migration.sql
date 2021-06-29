@@ -23,4 +23,10 @@ CREATE TABLE "author" (
     "birth_place" TEXT NOT NULL
 );
 
+CREATE TABLE "write" (
+    "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "book_id" int REFERENCES book(id),
+    "author_id" int REFERENCES author(id)
+);
+
 COMMIT;

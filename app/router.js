@@ -4,15 +4,16 @@ const router = Router();
 // Import the controllers to retrieve / modify the relevant datas
 const authorController = require('./controllers/authorController');
 const bookController = require('./controllers/bookController');
+const serieController = require('./controllers/serieController');
 
 // Test page
 router.get('/', (_, response) => {
     response.send('It\'s running');
 });
 
-/* 
--------------- AUTHORS ROUTE ------------------
-*/
+/* --------------
+ AUTHORS ROUTE 
+------------------*/
 
 // Get all the authors
 router.get('/authors', authorController.getAll);
@@ -30,10 +31,9 @@ router.patch('/authors/update', authorController.saveOrUpdate);
 router.delete('/authors/:id(\\d+)', authorController.delete);
 
 
-/*
---------------------BOOKS ROUTES ------------------------
-*/
-
+/*--------------------
+BOOKS ROUTES 
+------------------------*/
 // Get all the books
 router.get('/books', bookController.getAll);
 
@@ -48,6 +48,27 @@ router.patch('/books/update', bookController.saveOrUpdate);
 
 // Delete an book
 router.delete('/books/:id(\\d+)', bookController.delete);
+
+
+/*--------------------
+SERIES ROUTES 
+------------------------*/
+// Get all the series
+router.get('/series', serieController.getAll);
+
+// Get one serie
+router.get('/series/:id(\\d+)', serieController.getOne);
+
+// Insert a new serie
+router.post('/series/save', serieController.saveOrUpdate);
+
+// Update a new serie
+router.patch('/series/update', serieController.saveOrUpdate);
+
+// Delete a serie
+router.delete('/series/:id(\\d+)', serieController.delete);
+
+
 
 
 // Route 404

@@ -23,4 +23,11 @@ INSERT INTO book (title, cover_image, summary, serie_id) VALUES
 ('Calamity', 'https://coppermind.net/wiki/File:Calamity_US_Hardcover.jpg', 'When Calamity lit up the sky, the Epics were born. David''s fate has been tied to their villainy ever since that historic night. Steelheart killed his father. Firefight stole his heart. And now Regalia has turned his closest ally into a dangerous enemy. David knew Prof''s secret, and kept it even when Prof struggled to control the effects of his Epic powers. But facing Obliteration in Babilar was too much. Once the Reckoners'' leader, Prof has now embraced his Epic destiny. He''s disappeared into those murky shadows of menace Epics are infamous for the world over, and everyone knows there''s no turning back.. But everyone is wrong. Redemption is possible for Epics—Megan proved it. They''re not lost. Not completely. And David is just about crazy enough to face down the most powerful High Epic of all to get his friend back. Or die trying.', 6),
 ('Mistborn: The Final Empire', 'https://coppermind.net/wiki/File:Mistborn_Final_Empire.jpg','Vin is a street urchin, who was saved by her brother Reen from her mother, who killed her baby sister at the same time she pierced Vin''s ear, and gave her an earring. She lived with Reen for a while, while he taught her how to survive on the the streets. She eventually winds up in Cammon''s crew. Cammon is a criminal gang leader, who uses Vin for her allomantic abilities. She is then taken into a group of thieves led by Kelsier. They are intent on overthrowing the Lord Ruler, a god-like tyrant who has ruled for a thousand years. The band of thieves are promised the cache of the Lord Ruler''s atium, an allomantic metal that allows allomancers to see a few seconds into the future, as reward for their contributions. The group is hounded by Steel Inquisitors, intent on stopping their plans from succeeding.', 1);
 
+INSERT INTO "write" (book_id, author_id) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1);
+
 COMMIT;

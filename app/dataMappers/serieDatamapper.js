@@ -1,9 +1,9 @@
 const database = require('../database');
 
-const bookDatamapper = {
+const serieDatamapper = {
     async getAll() {
         const query = {
-            text: `SELECT * FROM "book";`
+            text: `SELECT * FROM "serie";`
         };
 
         try {
@@ -17,7 +17,7 @@ const bookDatamapper = {
 
     async getOne(id) {
         const query = {
-            text: `SELECT * FROM "book" WHERE id = $1;`,
+            text: `SELECT * FROM "serie" WHERE id = $1;`,
             values: [id]
         };
 
@@ -31,11 +31,11 @@ const bookDatamapper = {
         }
     },
 
-    async saveOrUpdate(book) {
-        if (book.id) {
+    async saveOrUpdate(serie) {
+        if (serie.id) {
             const query = {
-                text: `UPDATE "book" SET title = $1, serie_id = $2, cover_image = $3,summary = $4 WHERE id = $5 RETURNING id;`,
-                values: [book.title, book.serie_id, book.cover_image, book.summary,  book.id]
+                text: `UPDATE "serie" SET label = $1 WHERE id =  $2 RETURNING id;`,
+                values: [serie.label, serie.id]
             };
             try {
                 const { rows } = await database.query(query);
@@ -46,12 +46,12 @@ const bookDatamapper = {
             }
         } else {
             const query = {
-                text: `INSERT INTO "book" (title, cover_image, summary, serie_id) VALUES ($1, $2, $3, $4) RETURNING id;`,
-                values: [book.title, book.cover_image, book.summary, book.serie_id]
+                text: `INSERT INTO "serie" (label) VALUES ($1) RETURNING id;`,
+                values: [serie.label]
             };
             try {
                 const { rows } = await database.query(query);
-                // book.id = rows[0].id;
+                // serie.id = rows[0].id;
                 return rows[0];
             } catch (error) {
                 console.trace(error);
@@ -62,13 +62,14 @@ const bookDatamapper = {
 
     async delete(id) {
         const query = {
-            text: `DELETE FROM book WHERE id = $1;`,
+            text: `DELETE FROM serie WHERE id = $1 RETURNING id;`,
             values: [id]
         };
 
         try {
-            const deletedBook = await database.query(query);
-            return deletedBook;
+            const { rows } = await database.query(query);
+            console.log(rows);
+            return rows[0];
         } catch (error) {
             console.trace(error);
             throw error;
@@ -76,4 +77,4 @@ const bookDatamapper = {
     }
 };
 
-module.exports = bookDatamapper;
+module.exports = serieDatamapper;
