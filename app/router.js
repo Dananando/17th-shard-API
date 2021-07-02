@@ -12,7 +12,7 @@ router.get('/', (_, response) => {
 });
 
 /* --------------
- AUTHORS ROUTE 
+ AUTHORS ROUTES
 ------------------*/
 
 // Get all the authors
@@ -68,7 +68,9 @@ router.patch('/series/update', serieController.saveOrUpdate);
 // Delete a serie
 router.delete('/series/:id(\\d+)', serieController.delete);
 
-
+/* --------------
+ BOOKS + SERIES ROUTES 
+------------------*/
 
 
 // Route 404

@@ -1,4 +1,5 @@
 const database = require('../database');
+const fetch = require('node-fetch');
 
 const serieDatamapper = {
     async getAll() {
@@ -8,11 +9,16 @@ const serieDatamapper = {
 
         try {
             const { rows } = await database.query(query);
-            // console.log(rows);
-            return rows;
+            // Retrieve weather from Brussels - Belgium
+            const weatherData = await fetch('https://www.metaweather.com/api/location/968019')
+            const weatherDataJson = await weatherData.json();
+            console.log('Weather in Brussels: ', weatherDataJson);
+            return { rows, weatherDataJson };
         } catch (error) {
             console.trace(error);
-        }
+        };
+
+
     },
 
     async getOne(id) {
