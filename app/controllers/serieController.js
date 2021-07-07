@@ -14,6 +14,20 @@ const serieController = {
         }
     },
 
+    async getBooksBySerie(request, response, next) {
+        const id = Number(request.params.id);
+        try {
+            const books = await serieDatamapper.getBooksBySerie(id);
+            if (books) {
+                response.status(200).json(books);
+            } else {
+                next();
+            }
+        } catch (error) {
+            console.trace(error);
+        }        
+    },
+
     async getOne(request, response, next) {
         const id = Number(request.params.id);
         try {

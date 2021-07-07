@@ -24,7 +24,21 @@ const authorController = {
                 next();
             }
         } catch (error) {
-            console.trace(error);
+            console.trace(error.message);
+        }
+    },
+
+    async getBooksByAuthor(request, response, next) {
+        const id = Number(request.params.id);
+        try {
+            const books = await authorDatamapper.getBooksByAuthor(id);
+            if(books) {
+                response.status(200).json(books);
+            } else {
+                next();
+            }
+        } catch (error) {
+            console.trace(error.message)
         }
     },
 

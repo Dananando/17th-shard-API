@@ -30,6 +30,8 @@ router.patch('/authors/update', authorController.saveOrUpdate);
 // Delete an author
 router.delete('/authors/:id(\\d+)', authorController.delete);
 
+// Books written by an author
+router.get('/authors/:id(\\d+)/books', authorController.getBooksByAuthor);
 
 /*--------------------
 BOOKS ROUTES 
@@ -68,7 +70,8 @@ router.patch('/series/update', serieController.saveOrUpdate);
 // Delete a serie
 router.delete('/series/:id(\\d+)', serieController.delete);
 
-
+// Get books by serie
+router.get('/series/:id(\\d+)/books', serieController.getBooksBySerie);
 
 
 // Route 404

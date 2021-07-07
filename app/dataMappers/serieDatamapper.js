@@ -11,7 +11,8 @@ const serieDatamapper = {
             // console.log(rows);
             return rows;
         } catch (error) {
-            console.trace(error);
+            console.trace(error.message);
+            throw new Error(error.message);
         }
     },
 
@@ -26,8 +27,28 @@ const serieDatamapper = {
             console.log(rows[0]);
             return rows[0];
         } catch (error) {
-            console.trace(error);
-            throw error;
+            console.trace(error.message);
+            throw new Error(error.message);
+        }
+    },
+
+    async getBooksBySerie(id) {
+        const query = {
+            text: `SELECT book.title, book.cover_image, serie.label
+            FROM book
+            JOIN serie
+            ON book.serie_id = serie.id
+            WHERE book.serie_id = $1;`,
+            values: [id]
+        };
+
+        try {
+            const { rows } = await database.query(query);
+            console.log(rows);
+            return rows;
+        } catch (error) {
+            console.trace(error.message);
+            throw new Error(error.message) ;
         }
     },
 

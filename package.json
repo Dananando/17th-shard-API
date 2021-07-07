@@ -1,7 +1,7 @@
 {
   "name": "17th-shard-api",
   "version": "1.0.0",
-  "description": "Little project to gather info on all of Brandon SANDERSON'S books",
+  "description": "Little project to gather info on all of Brandon SANDERSON's books",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
