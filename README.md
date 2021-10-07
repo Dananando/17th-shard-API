@@ -61,6 +61,10 @@ nmp install
 ```
 
 Create the .env and sqitch.conf files thanks to the .example files. Then create a PSQL DataBase and deploy the sqitch project.
+An easy way to create a JWT_SIGN_SECRET is to use
+```bash
+require('crypto').randomBytes(64).toString('hex');
+```
 
 ```bash
 createdb brandon-api
