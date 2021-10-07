@@ -29,4 +29,12 @@ CREATE TABLE "write" (
     "author_id" int REFERENCES author(id)
 );
 
+CREATE TABLE "user" (
+    "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "username" TEXT NOT NULL UNIQUE,
+    "email" TEXT NOT NULL UNIQUE,
+    "password" TEXT NOT NULL,
+    "registration_date" TIMESTAMPTZ DEFAULT NOW()
+);
+
 COMMIT;

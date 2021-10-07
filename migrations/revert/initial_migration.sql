@@ -6,5 +6,6 @@ DROP TABLE "write";
 DROP TABLE "author";
 DROP TABLE "book";
 DROP TABLE "serie";
+DROP TABLE "user";
 
 COMMIT;
