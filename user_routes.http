@@ -12,21 +12,20 @@ POST http://localhost:3333/v1/user/signup
 Content-Type: application/json
 
 {
-    "userName": "Steph",
-    "email": "steph@andria.com",
+    "userName": "Jamie",
+    "email": "jamie@andria.com",
     "password": "password"
 }
 
-### Add new user (urlencoded style)
-POST http://localhost:3333/v1/user/save
-Content-Type: application/x-www-form-urlencoded
+### Log in
+POST http://localhost:3333/v1/user/login
+Content-Type: application/json
 
-first_name=Stepĥ
-&last_name=Steph
-&birth_date=1991-04-03
-&birth_place=Paris (FR)
-
+{
+    "userName": "Steph",
+    "password": "password"
+}
 
 ### Delete an user
-DELETE http://localhost:3333/v1/user/2
+DELETE http://localhost:3333/v1/user/4
 

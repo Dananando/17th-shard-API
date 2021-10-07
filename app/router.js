@@ -89,6 +89,9 @@ router.post('/user/signup', userController.create);
 // Update a new user
 // router.patch('/user/update', userController.saveOrUpdate);
 
+// Log in
+router.post('/user/login', userController.login);
+
 // Delete a user
 router.delete('/user/:id(\\d+)', userController.delete);
 

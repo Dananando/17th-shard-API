@@ -1,6 +1,8 @@
 const database = require('../database');
 const bcrypt = require('bcrypt');
 
+const jwtService = require('../middlewares/jwtMiddleware');
+
 const userDatamapper = {
     async getAll() {
         const query = {
@@ -65,14 +67,44 @@ const userDatamapper = {
         };
 
         try {
-            const {rows} = await database.query(query);
-            if(rows[0]) {
+            const { rows } = await database.query(query);
+            if (rows[0]) {
                 return rows[0];
             } else {
                 return 'Error during user creation.'
             }
         } catch (error) {
-            throw new Error(error.message);            
+            throw new Error(error.message);
+        }
+    },
+
+    async login(user) {
+        const query = {
+            text: `SELECT * FROM "user" WHERE username = $1`,
+            values: [user.userName]
+        };
+
+        try {
+            const { rows } = await database.query(query);
+            const foundUser = rows[0];
+            console.log('Found user : ', foundUser);
+            if(foundUser) {
+                const match = bcrypt.compareSync(user.password, foundUser.password);
+                console.log('match : ', match);
+                if(match === true) {
+                    const token = {
+                        id: jwtService.generateTokenForUser(foundUser),
+                        logged: true,
+                        user: foundUser 
+                    };
+                    console.log(`The token : `, token);
+                    return token
+                }
+                return `Wrong password. Please try again.`;
+            }
+            return `Username not found. Please try again.`;
+        } catch (error) {
+            throw error;
         }
     },
 
@@ -84,6 +116,7 @@ const userDatamapper = {
 
         try {
             const { rows } = await database.query(query);
+            console.log('Rows[0] : ', rows[0]);
             return rows[0];
         } catch (error) {
             console.trace(error);
