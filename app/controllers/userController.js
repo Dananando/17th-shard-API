@@ -32,7 +32,18 @@ const userController = {
     },
 
     async create(request, response, next) {
-        const
+        const newUserBody = request.body;
+        try {
+            const newUser = await userDatamapper.create(newUserBody);
+            if(newUserBody) {
+                response.status(201).json(newUser);
+            } else {
+                next();
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+
     },
 
     async delete(request, response, next) {

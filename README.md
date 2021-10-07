@@ -32,7 +32,7 @@ The frameworks [__Node.js__](https://nodejs.org/en/download) (v12 or above) and 
 
 [__PG__](https://www.npmjs.com/package/pg) will be needed as well in order to help our application interact with PSQL (see section below).
 
-Maybe authentification will be needed. Therefore [__express-session__](https://www.npmjs.com/package/express-session) and [__joi__](https://www.npmjs.com/package/joi) (to validate the updated or added data) might be installed in the future (*TBC*).
+Maybe authentification will be needed. Therefore jwt and [__joi__](https://www.npmjs.com/package/joi) (to validate the updated or added data) might be installed in the future (*TBC*).
 
 #### PSQL & Data Mapper
 
@@ -63,7 +63,7 @@ nmp install
 Create the .env and sqitch.conf files thanks to the .example files. Then create a PSQL DataBase and deploy the sqitch project.
 
 ```bash
-createdb boardgame
+createdb brandon-api
 sqitch deploy db:pg:brandon-api
 ```
 
@@ -74,7 +74,7 @@ Configure PSQL (or supply the relevant environment variables) so that the create
 In order to set up a few test datas, use the following command :
 
 ```bash
-psql -d boardgame -f ./data/import_data.sql
+psql -d brandon-api -f ./data/import_data.sql
 ```
 ## Launch the project
 

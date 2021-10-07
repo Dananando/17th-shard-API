@@ -1,4 +1,5 @@
 const database = require('../database');
+const bcrypt = require('bcrypt');
 
 const userDatamapper = {
     async getAll() {
@@ -53,7 +54,26 @@ const userDatamapper = {
     },
 
     async create(user) {
+        // configuring the salt then hashing the password
+        const salt = bcrypt.genSaltSync();
+        const hashedPassword = bcrypt.hashSync(user.password, salt);
 
+        // Prepared query to avoid SQL injection
+        const query = {
+            text: `INSERT INTO "user" (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email;`,
+            values: [user.userName, user.email, hashedPassword]
+        };
+
+        try {
+            const {rows} = await database.query(query);
+            if(rows[0]) {
+                return rows[0];
+            } else {
+                return 'Error during user creation.'
+            }
+        } catch (error) {
+            throw new Error(error.message);            
+        }
     },
 
     async delete(id) {

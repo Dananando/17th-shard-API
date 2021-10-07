@@ -1,0 +1,32 @@
+### ----------
+### USER 
+### ------------
+### Get all user
+GET  http://localhost:3333/v1/user
+
+### Get one user
+GET http://localhost:3333/v1/user/2
+
+### Add new user (json style)
+POST http://localhost:3333/v1/user/signup
+Content-Type: application/json
+
+{
+    "userName": "Steph",
+    "email": "steph@andria.com",
+    "password": "password"
+}
+
+### Add new user (urlencoded style)
+POST http://localhost:3333/v1/user/save
+Content-Type: application/x-www-form-urlencoded
+
+first_name=Stepĥ
+&last_name=Steph
+&birth_date=1991-04-03
+&birth_place=Paris (FR)
+
+
+### Delete an user
+DELETE http://localhost:3333/v1/user/2
+

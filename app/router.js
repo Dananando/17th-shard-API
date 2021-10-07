@@ -5,6 +5,7 @@ const router = Router();
 const authorController = require('./controllers/authorController');
 const bookController = require('./controllers/bookController');
 const serieController = require('./controllers/serieController');
+const userController = require('./controllers/userController');
 
 // Test page
 router.get('/', (_, response) => {
@@ -72,6 +73,24 @@ router.delete('/series/:id(\\d+)', serieController.delete);
 
 // Get books by serie
 router.get('/series/:id(\\d+)/books', serieController.getBooksBySerie);
+
+/*--------------------
+USER ROUTES 
+------------------------*/
+// Get all the users
+router.get('/user', userController.getAll);
+
+// Get one user
+router.get('/user/:id(\\d+)', userController.getOne);
+
+// Insert a new user
+router.post('/user/signup', userController.create);
+
+// Update a new user
+// router.patch('/user/update', userController.saveOrUpdate);
+
+// Delete a user
+router.delete('/user/:id(\\d+)', userController.delete);
 
 
 // Route 404
